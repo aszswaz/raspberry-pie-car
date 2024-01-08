@@ -23,11 +23,15 @@ def main():
             btnPin, GPIO.IN,
             pull_up_down=GPIO.PUD_UP
         )
+        GPIO.setup(24, GPIO.OUT)
+        GPIO.setup(25, GPIO.OUT)
         PCA9685.init()
         car.init()
 
         car.forward()
-        time.sleep(10)
+        time.sleep(5)
+        car.back()
+        time.sleep(5)
     finally:
         car.stop()
         GPIO.cleanup()
