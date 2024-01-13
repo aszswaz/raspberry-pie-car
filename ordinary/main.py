@@ -2,15 +2,15 @@
 
 import RPi._GPIO as GPIO
 import time
+from car_signal import CarSignal
 
-import PCA9685
-import Car as car
+import pca9685 as pca
+import car
+from listen_button import listen_button
 
 # 右侧和左侧红外避障传感器
 sensorRight = 16
 sensorLeft = 12
-# 按键
-btnPin = 19
 
 
 def main():
@@ -19,19 +19,31 @@ def main():
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(sensorRight, GPIO.IN)
         GPIO.setup(sensorLeft, GPIO.IN)
-        GPIO.setup(
-            btnPin, GPIO.IN,
-            pull_up_down=GPIO.PUD_UP
-        )
-        GPIO.setup(24, GPIO.OUT)
-        GPIO.setup(25, GPIO.OUT)
-        PCA9685.init()
-        car.init()
 
-        car.forward()
-        time.sleep(5)
-        car.back()
-        time.sleep(5)
+        pca.init()
+        car.init()
+        listen_button()
+        car.set_signal(CarSignal.READY)
+
+        while True:
+            if car.get_signal() == CarSignal.STOPED:
+                continue
+            time.sleep(2)
+            car.forward()
+            time.sleep(5)
+            car.stop()
+            time.sleep(2)
+            car.back()
+            time.sleep(5)
+            car.stop()
+            time.sleep(2)
+            car.move_right()
+            time.sleep(5)
+            car.stop()
+            time.sleep(2)
+            car.move_left()
+            time.sleep(5)
+            car.stop()
     finally:
         car.stop()
         GPIO.cleanup()
