@@ -1,6 +1,6 @@
 import RPi._GPIO as GPIO
 
-import pca9685 as pca
+from . import pca9685 as pca
 
 
 class Motor:
