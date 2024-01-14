@@ -1,3 +1,0 @@
-pip-autoremove==0.10.0
-RPi.GPIO==0.7.1
-smbus2==0.4.3
