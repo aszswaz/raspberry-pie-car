@@ -11,9 +11,9 @@ class BthApplication(Object):
 
     bth_service: BthService
 
-    def __init__(self, bus: Bus) -> None:
+    def __init__(self, bus: Bus, callback) -> None:
         super().__init__(bus, self.obj_path, self.obj_name)
-        self.bth_service = BthService(bus)
+        self.bth_service = BthService(bus, callback)
         return None
 
     @method(

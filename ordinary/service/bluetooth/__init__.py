@@ -12,13 +12,18 @@ from .bth_application import BthApplication
 
 
 class Service(Thread):
+    def __init__(self, callback):
+        super().__init__()
+        self.callback = callback
+        return None
+
     def run(self) -> None:
-        # TODO：开启蓝牙 GATT 监听
+        # 开启蓝牙 GATT 监听
         DBusGMainLoop(set_as_default=True)
         bus = dbus.SystemBus()
 
         start_advertisement(bus)
-        start_gatt(bus)
+        start_gatt(bus, self.callback)
         GLib.MainLoop().run()
         return None
 
@@ -40,7 +45,7 @@ def start_advertisement(bus: Bus):
     return None
 
 
-def start_gatt(bus: Bus):
+def start_gatt(bus: Bus, callback):
     """
     通过蓝牙的 GATT 协议接收控制指令
     """
@@ -49,7 +54,7 @@ def start_gatt(bus: Bus):
         constants.GATT_MANAGER_INTERFACE
     )
 
-    app = BthApplication(bus)
+    app = BthApplication(bus, callback)
     service_manager.RegisterApplication(
         app.obj_path, {},
         reply_handler=register_app,
