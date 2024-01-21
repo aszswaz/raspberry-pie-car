@@ -7,10 +7,9 @@ class BthCharacteristic(Object):
     obj_path = ObjectPath(f"{BUS_NAMESPACE}/BthCharacteristic")
     obj_name = f"{BUS_NAME}.BthCharacteristic"
 
-    def __init__(self, bus, svc_path, callback) -> None:
+    def __init__(self, bus, svc_path) -> None:
         super().__init__(bus, self.obj_path, self.obj_name)
         self.svc_path = svc_path
-        self.callback = callback
         return None
 
     @method(
@@ -30,7 +29,7 @@ class BthCharacteristic(Object):
         接收客户端传入的数据
         """
         buf = [int(item) for item in value]
-        self.callback(buf[0])
+        callback(buf[0])
         return None
 
     def get_properties(self):

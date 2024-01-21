@@ -1,5 +1,5 @@
 from ..controller import car
-from .bluetooth import Service as BluetoothService
+from .bluetooth import Service as BluetoothService, constants as bth_constants
 from .commands import *
 
 """
@@ -24,7 +24,8 @@ _actions = {
 
 
 def start():
-    BluetoothService(execute_instructions).start()
+    bth_constants.set_callback(execute_instructions)
+    BluetoothService().start()
     return None
 
 

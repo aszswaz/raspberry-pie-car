@@ -12,9 +12,9 @@ class BthService(Object):
     # org.bluez.GattService 的属性
     primary = True
 
-    def __init__(self, bus, callback) -> None:
+    def __init__(self, bus) -> None:
         super().__init__(bus, self.obj_path, self.obj_name)
-        self.chtic = BthCharacteristic(bus, self.obj_path, callback)
+        self.chtic = BthCharacteristic(bus, self.obj_path)
         return None
 
     @method(
