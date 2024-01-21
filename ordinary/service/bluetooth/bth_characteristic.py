@@ -1,6 +1,7 @@
 from dbus.service import Object, ObjectPath, method
 
 from .constants import *
+from ..commands import execute_command
 
 
 class BthCharacteristic(Object):
@@ -28,8 +29,11 @@ class BthCharacteristic(Object):
         """
         接收客户端传入的数据
         """
-        buf = [int(item) for item in value]
-        callback(buf[0])
+        try:
+            buf = [int(item) for item in value]
+            execute_command(buf[0])
+        except Exception as err:
+            print(err)
         return None
 
     def get_properties(self):

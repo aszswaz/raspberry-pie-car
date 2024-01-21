@@ -5,14 +5,16 @@ import dbus
 from dbus import Bus
 from gi.repository import GLib
 
+import RPi._GPIO as GPIO
+
 
 from .bth_advertisement import BthAdvertisement
 from .constants import *
 from .bth_application import BthApplication
 
 
-class Service(Thread):
-    def run(self) -> None:
+class Service():
+    def start(self) -> None:
         # 开启蓝牙 GATT 监听
         DBusGMainLoop(set_as_default=True)
         bus = dbus.SystemBus()

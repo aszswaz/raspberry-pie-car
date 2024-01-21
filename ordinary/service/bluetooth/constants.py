@@ -17,10 +17,3 @@ GATT_MANAGER_INTERFACE = BLUEZ_SERVICE_NAME + ".GattManager1"
 GATT_SERVICE_INTERFACE = BLUEZ_SERVICE_NAME + ".GattService1"
 GATT_CHARACTERISTIC_INTERFACE = BLUEZ_SERVICE_NAME + ".GattCharacteristic1"
 GATT_DESCRIPTOR_INTERFACE = BLUEZ_SERVICE_NAME + ".GattDescriptor1"
-
-callback = None
-
-
-def set_callback(call):
-    global callback
-    callback = call
