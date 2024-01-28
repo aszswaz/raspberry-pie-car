@@ -8,9 +8,12 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat.checkSelfPermission
-import java.util.UUID
 
 class MainActivity : AppCompatActivity() {
+    companion object {
+        val TAG = MainActivity::class.simpleName
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -22,10 +25,7 @@ class MainActivity : AppCompatActivity() {
             if (checkSelfPermission(this, permission.BLUETOOTH) != PERMISSION_GRANTED) {
                 return
             }
-            val sock = dev.createRfcommSocketToServiceRecord(UUID.fromString("b5be0904-be41-4155-ac49-19691dbb454d"))
-            sock.connect()
-            sock.outputStream.write("Hello World".toByteArray())
-            sock.outputStream.flush()
+            dev.connectGatt(this, false, GattClient()).connect()
         } catch (e: Exception) {
             Log.e(MainActivity::class.simpleName, e.stackTraceToString())
         }
