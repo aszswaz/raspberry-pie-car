@@ -1,10 +1,14 @@
+"""
+通过拓展板上的按钮切换手动和自动控制
+"""
+
 from threading import Thread
 import time
 
 import RPi._GPIO as GPIO
 
-import car
-from car_signal import CarSignal
+from controller import car
+from controller.car_signal import CarSignal
 
 # 按键
 __BTN_PIN = 19

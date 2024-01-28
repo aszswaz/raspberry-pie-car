@@ -1,8 +1,8 @@
 import RPi._GPIO as GPIO
 
-import pca9685 as pca
-from motor import Motor
-from car_signal import CarSignal
+from . import pca9685 as pca
+from .motor import Motor
+from .car_signal import CarSignal
 
 # 行驶速度，建议在 30 ~ 99 以内取值
 __speed = 50

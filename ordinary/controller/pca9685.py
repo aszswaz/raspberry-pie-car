@@ -20,14 +20,6 @@ __SUBADR3 = 0x04
 __PRESCALE = 0xFE
 
 """
-PCA9685 的 LED0 寄存器
-"""
-__LED0_ON_L = 0x06
-__LED0_ON_H = 0x07
-__LED0_OFF_L = 0x08
-__LED0_OFF_H = 0x09
-
-"""
 PCA9685 的 ALL LED 寄存器
 """
 __ALLLED_ON_L = 0xFA
