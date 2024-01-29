@@ -13,7 +13,7 @@ from .bth_application import BthApplication
 
 class Service(Thread):
     def run(self) -> None:
-        # TODO：开启蓝牙 GATT 监听
+        # 开启蓝牙 GATT 监听
         DBusGMainLoop(set_as_default=True)
         bus = dbus.SystemBus()
 

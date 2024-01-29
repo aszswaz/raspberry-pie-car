@@ -1,7 +1,6 @@
 from dbus.service import Object, ObjectPath, method
 
 from .constants import *
-from . import util
 
 
 class BthCharacteristic(Object):
@@ -29,8 +28,8 @@ class BthCharacteristic(Object):
         """
         接收客户端传入的数据
         """
-        buf = bytes([int(item) for item in value])
-        print("WriteValue:", buf)
+        buf = [int(item) for item in value]
+        callback(buf[0])
         return None
 
     def get_properties(self):
