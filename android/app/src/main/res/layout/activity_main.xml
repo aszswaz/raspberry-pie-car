@@ -1,18 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/text_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginBottom="20dp"
+        android:text="未连接到小车"
+        tools:ignore="HardcodedText" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_left_front"
+            style="?android:attr/buttonCornerRadius"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:text="左前"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/btn_forward"
+            style="?android:attr/buttonCornerRadius"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:text="向前"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/btn_right_front"
+            style="?android:attr/buttonCornerRadius"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:text="右前"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_pan_left"
+            style="?android:attr/buttonCornerRadius"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:text="左平移"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/btn_stop"
+            style="?android:attr/buttonCornerRadius"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:text="停止"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/btn_pan_right"
+            style="?android:attr/buttonCornerRadius"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:text="右平移"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_rear_left"
+            style="?android:attr/buttonCornerRadius"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:text="左后"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/btn_backward"
+            style="?android:attr/buttonCornerRadius"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:text="向后"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/btn_right_back"
+            style="?android:attr/buttonCornerRadius"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:text="右后"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_turn_left"
+            style="?android:attr/buttonCornerRadius"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:text="左转"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/btn_turn_right"
+            style="?android:attr/buttonCornerRadius"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:text="右转"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+</LinearLayout>
