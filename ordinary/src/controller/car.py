@@ -84,10 +84,10 @@ def forward():
     """
     if signal == CarSignal.STOPED:
         return
-    wheel_left_front.forward(speed)
     wheel_right_front.forward(speed)
-    wheel_left_back.forward(speed)
     wheel_right_back.forward(speed)
+    wheel_left_front.forward(speed)
+    wheel_left_back.forward(speed)
 
 
 def right_front():
